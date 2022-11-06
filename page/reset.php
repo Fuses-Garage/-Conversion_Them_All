@@ -12,23 +12,13 @@
 	unset($_SESSION["units"]);
 	echo '<font size=7><p><center>なんでも換算システム</center></p></font>';
 	echo '様々な単位を自身で入力することで、様々な単位の換算を可能にするWebシステムです。';
-	if(isset($_SESSION["units"])){
-		require("list.php");//リスト表示
-		echo'<form action="addunit.php" method="post">';
-		echo'単位名:<input type="text" name="newname">';
-		echo '1新単位=<input type="text" name="newbef">',htmlspecialchars($_SESSION["units"][$size-1]["name"]),"<br>";
-	}else{
-		$_SESSION["units"]=[];
-		echo'<form action="addunit.php" method="post">';
-		echo'単位名:<input type="text" name="newname">';
-
-	}
+	require("component/addform.php");//追加フォーム	
 	echo'<input type="submit" value="追加">';
 	echo'</form>';
 	echo'<form action="reset.php" method=post>';
 	echo'<input type="submit" value="リセット">';
 	echo'</form>';
-	require("convform.php");
+	require("component/convform.php");
 	?> 
 
     <!--

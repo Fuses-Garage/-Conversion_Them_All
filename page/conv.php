@@ -10,23 +10,13 @@
     <?php 
 	echo '<font size=7><p><center>なんでも換算システム</center></p></font>';
 	echo '様々な単位を自身で入力することで、様々な単位の換算を可能にするWebシステムです。';
-	if(isset($_SESSION["units"])){
-		require("list.php");//リスト表示
-		require("convres.php");//結果表示
-		echo'<form action="addunit.php" method="post">';
-		echo'単位名:<input type="text" name="newname"><br>';
-		echo '1新単位=<input type="text" name="newbef">',htmlspecialchars($_SESSION["units"][$size-1]["name"]),"<br>";
-	}else{
-		echo'<form action="addunit.php" method="post">';
-		echo'単位名:<input type="text" name="newname">';
-
-	}
-	echo'<input type="submit" value="追加">';
-	echo'</form>';
+	require("component/list.php");//リスト表示
+	require("component/convres.php");//結果表示
+	require("component/addform.php");//追加フォーム	
 	echo'<form action="reset.php" method=post>';
 	echo'<input type="submit" value="リセット">';
 	echo'</form>';
-	require("convform.php");
+	require("component/convform.php");
 	?> 
     <!--
     This script places a badge on your repl's full-browser view back to your repl's cover
