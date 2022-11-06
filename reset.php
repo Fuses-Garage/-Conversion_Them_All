@@ -16,7 +16,7 @@
 		require("list.php");//リスト表示
 		echo'<form action="addunit.php" method="post">';
 		echo'単位名:<input type="text" name="newname">';
-		echo '1',$_SESSION["units"][$size-1],'=<input type="text" name="newbef">新単位';
+		echo '1新単位=<input type="text" name="newbef">',htmlspecialchars($_SESSION["units"][$size-1]["name"]),"<br>";
 	}else{
 		$_SESSION["units"]=[];
 		echo'<form action="addunit.php" method="post">';

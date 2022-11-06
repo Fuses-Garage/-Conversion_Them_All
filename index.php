@@ -7,7 +7,6 @@
 	<meta charset="UTF-8">
   </head>
   <body>
-	
     <?php 
 	echo '<font size=7><p><center>なんでも換算システム</center></p></font>';
 	echo '様々な単位を自身で入力することで、様々な単位の換算を可能にするWebシステムです。';
@@ -17,7 +16,6 @@
 		echo'単位名:<input type="text" name="newname"><br>';
 		echo '1新単位=<input type="text" name="newbef">',$_SESSION["units"][$size-1]["name"],"<br>";
 	}else{
-		$_SESSION["units"];
 		echo'<form action="addunit.php" method="post">';
 		echo'単位名:<input type="text" name="newname">';
 
@@ -27,10 +25,7 @@
 	echo'<form action="reset.php" method=post>';
 	echo'<input type="submit" value="リセット">';
 	require("convform.php");
-	
-	
-	?> 
-
+	?>
     <!--
     This script places a badge on your repl's full-browser view back to your repl's cover
     page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,

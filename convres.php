@@ -13,7 +13,7 @@
 	$rate=1;
 	for($i=0;$i<$size;$i++){//すべての単位について
 		if(preg_match("/^[0-9]+$/",$_SESSION["units"][$i]["bef"]))$rate*=$_SESSION["units"][$i]["bef"];
-		echo"<tr><td>",$_SESSION["units"][$i]["name"],"換算で","</td><td>",$summinunit/$rate,$_SESSION["units"][$i]["name"],"</td></tr>";
+		echo"<tr><td>",htmlspecialchars($_SESSION["units"][$i]["name"]),"換算で","</td><td>",$summinunit/$rate,htmlspecialchars($_SESSION["units"][$i]["name"]),"</td></tr>";
 	}
 	echo"</table>";
 	echo'<hr>';//横棒で区切る

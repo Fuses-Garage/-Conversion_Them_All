@@ -18,7 +18,7 @@ echo($emp);
 	$rateisvalid=(!empty($_REQUEST["newbef"])&&preg_match("/^[0-9]+$/",$_REQUEST["newbef"]));
 	if(!empty($_REQUEST["newname"])&&($rateisvalid||$emp)){
 		if(!isset($_SESSION["units"])) $_SESSION["units"]=[];
-		array_push($_SESSION["units"], ["name"=>$_REQUEST["newname"],"bef"=>$_REQUEST["newbef"]]);
+		array_push($_SESSION["units"], ["name"=>htmlspecialchars($_REQUEST["newname"]),"bef"=>$_REQUEST["newbef"]]);
 	}else{
 		echo'有効な値を入力してください。';
 	}
@@ -28,7 +28,7 @@ echo($emp);
 		require("list.php");//リスト表示
 		echo'<form action="addunit.php" method="post">';
 		echo'単位名:<input type="text" name="newname"><br>';
-		echo '1新単位=<input type="text" name="newbef">',$_SESSION["units"][$size-1]["name"],"<br>";
+		echo '1新単位=<input type="text" name="newbef">',htmlspecialchars($_SESSION["units"][$size-1]["name"]),"<br>";
 	}else{
 		$_SESSION["units"];
 		echo'<form action="addunit.php" method="post">';
@@ -37,13 +37,11 @@ echo($emp);
 	}
 	echo'<input type="submit" value="追加">';
 	echo'</form>';	
-	echo'</form>';
 	echo'<form action="reset.php" method=post>';
 	echo'<input type="submit" value="リセット">';
 	echo'</form>';
 	require("convform.php");
 	?> 
-
     <!--
     This script places a badge on your repl's full-browser view back to your repl's cover
     page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
