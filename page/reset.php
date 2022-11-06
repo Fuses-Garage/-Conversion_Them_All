@@ -13,8 +13,6 @@
 	echo '<font size=7><p><center>なんでも換算システム</center></p></font>';
 	echo '様々な単位を自身で入力することで、様々な単位の換算を可能にするWebシステムです。';
 	require("component/addform.php");//追加フォーム	
-	echo'<input type="submit" value="追加">';
-	echo'</form>';
 	echo'<form action="reset.php" method=post>';
 	echo'<input type="submit" value="リセット">';
 	echo'</form>';
