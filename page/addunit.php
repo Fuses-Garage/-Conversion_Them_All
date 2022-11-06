@@ -15,7 +15,7 @@ echo($emp);
 	}else{
 		$emp=empty($_SESSION["units"]);
 	}
-	$rateisvalid=(!empty($_REQUEST["newbef"])&&preg_match("/^[0-9]+$/",$_REQUEST["newbef"]));//レートに整数が入ってる？
+	$rateisvalid=(!empty($_REQUEST["newbef"])&&preg_match("/^[0-9]+(\.[0-9]*)?$/",$_REQUEST["newbef"]));//レートに整数が入ってる？
 	if(!empty($_REQUEST["newname"])&&($rateisvalid||$emp)){//名前・レートともに有効なら
 		if(!isset($_SESSION["units"])) $_SESSION["units"]=[];//nullなら配列を追加
 		array_push($_SESSION["units"], ["name"=>htmlspecialchars($_REQUEST["newname"]),"bef"=>$_REQUEST["newbef"]]);//新しい要素を追加
